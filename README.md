@@ -19,3 +19,4 @@ Sueca card game for web.
     - number
     - suit
 - o usuario pode criar, editar e deletar rules (menos a default)
+- config screen

@@ -21,3 +21,12 @@
 
 - custuom deck orders:
     - user can create, edit and delete custuom orders for the deck
+
+- rules
+    - states
+        - selected rules
+        - rules
+    - rules:
+        - name (id)
+        - json with rules for each number
+        - name: {rules}
