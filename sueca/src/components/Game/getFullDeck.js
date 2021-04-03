@@ -1,8 +1,7 @@
-export default () => {
+export default function getFullDeck() {
     const suits = ['C','D','H','S'];
-    const numbers = [...Array(11).keys(), 'J', 'Q', 'K'];
-    numbers.shift();
-    numbers[0] = 'A';
+    const numbers = [...Array(10).keys(), 'J', 'Q', 'K'];
+    numbers[1] = 'A';
     
     const fullDeck = [];
 
