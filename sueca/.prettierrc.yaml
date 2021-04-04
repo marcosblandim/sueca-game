@@ -7,4 +7,4 @@ arrowParens: "avoid"
 semi: true
 endOfLine: "lf"
 jsxBracketSameLine: false
-useTabs: false
+useTabs: true
