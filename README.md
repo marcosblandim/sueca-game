@@ -1,22 +1,41 @@
-# sueca-game
-Sueca card game for web.
+<h1 align="center">Welcome to sueca-game 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/marcosblandim/sueca-game" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-## TODO
+> Web version of the Sueca card game.
 
-## Features
-- regras pra todas as cartas ou soh pro numero
+### 🏠 [Homepage](https://github.com/marcosblandim/sueca-game)
 
-## Geral
-- classe Deck
-    - getRandom
-    - currCard
-    - keepCurrCard (pode ser alterado antes ou durante o jogo?)
-    - discardPile (?), pra ver quais cartas ja foram
-- classe Rule
-    - dá uma regra para cada carta
-    - a regra tem um nome e uma descrição
-- obejto card
-    - number
-    - suit
-- o usuario pode criar, editar e deletar rules (menos a default)
-- config screen
+## Install
+
+```sh
+npm install
+```
+
+## Usage
+
+```sh
+npm start
+```
+
+## Author
+
+👤 **Marcos Blandim**
+
+* Website: linkedin.com/in/marcosblandim
+* Github: [@marcosblandim](https://github.com/marcosblandim)
+* LinkedIn: [@marcosblandim](https://linkedin.com/in/marcosblandim)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
