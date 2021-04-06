@@ -1,50 +1,62 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import RuleLine from './RuleLine';
+import RuleContent from './RuleContent';
+import RuleForm from './RuleForm';
 
-export default function Rules({ rules, setRules, selectedRuleName, setSelectedRuleName }) {
+export default function Rules({
+	rules,
+	setRules,
+	selectedRuleName,
+	setSelectedRuleName,
+}) {
+	const addRule = rule => {
+		if (findRule(rule.name)) {
+			alert('Rule name already exists');
+			return false;
+		}
+		setRules([...rules, rule]);
+		return true;
+	};
 
-    const [ruleNameInput, setRuleNameInput] = useState("");
+	const findRule = name => {
+		for (const rule of rules) {
+			if (rule.name == name) {
+				return rule;
+			}
+		}
+	};
 
-    const updateRuleNameInput = event => {
-        setRuleNameInput(event.target.value);
-    }
+	const getSelectedRule = () => {
+		return findRule(selectedRuleName);
+	};
 
-    const handleOnSubmit = event => {
-        event.preventDefault();
-        addRule(ruleNameInput, {});
-        setRuleNameInput(ruleNameInput);
-    }
+	return (
+		<>
+			<h1>Rules</h1>
+			<p>
+				<Link to='/'>{'<'} Back</Link>
+			</p>
 
-    const addRule = (ruleName, rule) => {
-        if (ruleName in rules) {
-            alert('Rule name already exists')
-        } else {
-            setRules({ ...rules, [ruleName]: rule });
-        }
-    }
+			<br />
+			<h3>Add rules</h3>
+			<RuleForm addRule={addRule} />
 
-    /*
-    # Rules
-    - form for creating new rules
-    - list of created forms
-        - can delete, select and edit a rule from buttons of the elments of this list
-        - edit 
-    - when creating, it will come filled with the standart rules
-    - editing will be the same as creating, but it will come filled with its own data instead of the standart rule deck
-    */
-    return (
-        <>
-            <h1>Rules</h1>
-            <p><Link to='/'>{'<'} Back</Link></p>
-            <form onSubmit={handleOnSubmit}>
-                <input value={ruleNameInput} onChange={updateRuleNameInput} required/>
-                <button type="submit" >Add rule</button>
-            </form>
-            {Object.keys(rules).map(rule => {
-                return (
-                    <p key={rule}>{rule}</p>
-                )
-            })}
-        </>
-    )
+			<br />
+			<h3>All rules</h3>
+			{rules.map(rule => (
+				<RuleLine
+					key={rule.name}
+					rule={rule}
+					selected={rule.name === selectedRuleName}
+					setSelectedRuleName={setSelectedRuleName}
+				/>
+			))}
+
+			<br />
+			<h3>Selected rule</h3>
+			{getSelectedRule().name}
+			<RuleContent content={getSelectedRule().content} />
+		</>
+	);
 }

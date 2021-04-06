@@ -7,7 +7,7 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:react/recommended',
 		'airbnb',
-		'prettier',
+		// 'prettier',
 	],
 	parserOptions: {
 		ecmaFeatures: {
@@ -23,12 +23,15 @@ module.exports = {
 		'no-unused-vars': 'warn',
 		'no-debugger': 'warn',
 		'arrow-body-style': 'off',
+		'prefer-const': 'warn',
 		'react/prop-types': 'off',
 		'react/destructuring-assignment': 'warn',
 		'react/prefer-stateless-function': 'warn',
 		'react/jsx-fragments': 'off',
 		'react/jsx-filename-extension': 'off',
 		'import/no-unresolved': 'off',
-		'import/extensions': 'on',
+		'import/extensions': 'warn',
+		'no-tabs': 'off', // fix
+		indent: 'off', // fix
 	},
 };
