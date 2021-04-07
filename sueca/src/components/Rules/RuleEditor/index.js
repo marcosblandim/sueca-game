@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
 import { Redirect, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import findRule from '../../utils/findRule';
 import getSuits from '../utils/getSuits';
 
 export default function RuleEditor({ rules, updateRule }) {
-  const findRule = name => {
-    for (const rule of rules) {
-      if (rule.name == name) {
-        return { ...rule };
-      }
-    }
-  };
-
   const { name: ruleName } = useParams();
 
-  const [editorRule, setEitorRule] = useState(findRule(ruleName));
+  const [editorRule, setEitorRule] = useState(findRule(ruleName, rules));
   const [redirectToRules, setRedirectToRules] = useState(false);
 
   if (editorRule == undefined) {

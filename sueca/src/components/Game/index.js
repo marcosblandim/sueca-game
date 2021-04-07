@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import getFullDeck from './getFullDeck';
 import './styles.css';
@@ -59,7 +59,7 @@ function Game({ selectedRule }) {
       description: ruleDescription,
     } = selectedRule.content[cardKey];
     return (
-      <>
+      <React.Fragment>
         <p>
           <img
             alt={`${getCurrCard()} card`}
@@ -70,12 +70,12 @@ function Game({ selectedRule }) {
         </p>
         <h3 style={{ marginLeft: '40px' }}>{ruleName}</h3>
         <p style={{ marginLeft: '40px' }}>{ruleDescription}</p>
-      </>
+      </React.Fragment>
     );
   };
 
   return (
-    <>
+    <React.Fragment>
       <h1>Game</h1>
       <p>
         <Link to='/'>{'<'} Back</Link>
@@ -96,7 +96,7 @@ function Game({ selectedRule }) {
       </button>
 
       <ConditionalCard />
-    </>
+    </React.Fragment>
   );
 }
 

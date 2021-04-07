@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
+import { defaultRuleName } from '../../utils/constants';
 
 export default function RuleLine({
   rule,
@@ -7,8 +8,6 @@ export default function RuleLine({
   setSelectedRuleName,
   deleteRule,
 }) {
-  const defaultRuleName = 'standart';
-
   const selectedRule = () => {
     setSelectedRuleName(rule.name);
   };

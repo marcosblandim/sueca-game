@@ -5,18 +5,15 @@ import Home from './Home';
 import Rules from './Rules';
 import getDefaultRuleContent from './Rules/utils/getDefaultRuleContent';
 import RuleEditor from './Rules/RuleEditor';
+import { ls, defaultRuleName } from './utils/constants';
+import findRule from './utils/findRule';
 
-function App() {
-  const namespace = 'sg-';
-  const LSRuleKey = 'rules';
-  const LSSelectedRuleNameKey = 'selectedRuleName';
-
+export default function App() {
   const fetchLSRules = () =>
-    JSON.parse(localStorage.getItem(namespace + LSRuleKey));
+    JSON.parse(localStorage.getItem(ls.namespace + ls.rulesKey));
   const fetchLSSelectedRuleName = () =>
-    localStorage.getItem(namespace + LSSelectedRuleNameKey);
+    localStorage.getItem(ls.namespace + ls.selectedRuleNameKey);
 
-  const defaultRuleName = 'standart';
   const defaultRules = [
     {
       name: defaultRuleName,
@@ -41,17 +38,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(namespace + LSRuleKey, JSON.stringify(rules));
-    localStorage.setItem(namespace + LSSelectedRuleNameKey, selectedRuleName);
+    localStorage.setItem(ls.namespace + ls.rulesKey, JSON.stringify(rules));
+    localStorage.setItem(
+      ls.namespace + ls.selectedRuleNameKey,
+      selectedRuleName
+    );
   });
-
-  const findRule = name => {
-    for (const rule of rules) {
-      if (rule.name == name) {
-        return rule;
-      }
-    }
-  };
 
   const updateRule = rule => {
     setRules([...rules, rule]);
@@ -61,7 +53,7 @@ function App() {
     <div className='App'>
       <Switch>
         <Route path='/game'>
-          <Game selectedRule={findRule(selectedRuleName)} />
+          <Game selectedRule={findRule(selectedRuleName, rules)} />
         </Route>
         <Route path='/rules/:name/edit'>
           <RuleEditor rules={rules} updateRule={updateRule} />
@@ -84,5 +76,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

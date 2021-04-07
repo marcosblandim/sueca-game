@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import RuleLine from './RuleLine';
 import RuleContent from './RuleContent';
 import RuleForm from './RuleForm';
+import findRule from '../utils/findRule';
+import { defaultRuleName } from '../utils/constants';
 
 export default function Rules({
   rules,
@@ -10,10 +12,8 @@ export default function Rules({
   selectedRuleName,
   setSelectedRuleName,
 }) {
-  const defaultRuleName = 'standart';
-
   const addRule = rule => {
-    if (findRule(rule.name)) {
+    if (findRule(rule.name, rules)) {
       alert('Rule name already exists');
       return false;
     }
@@ -21,16 +21,8 @@ export default function Rules({
     return true;
   };
 
-  const findRule = name => {
-    for (const rule of rules) {
-      if (rule.name == name) {
-        return rule;
-      }
-    }
-  };
-
   const getSelectedRule = () => {
-    return findRule(selectedRuleName);
+    return findRule(selectedRuleName, rules);
   };
 
   const deleteRule = name => {
@@ -43,7 +35,7 @@ export default function Rules({
   };
 
   return (
-    <>
+    <React.Fragment>
       <h1>Rules</h1>
       <p>
         <Link to='/'>{'<'} Back</Link>
@@ -69,6 +61,6 @@ export default function Rules({
       <h3>Selected rule</h3>
       {getSelectedRule().name}
       <RuleContent content={getSelectedRule().content} />
-    </>
+    </React.Fragment>
   );
 }
