@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RuleLine from './RuleLine';
 import RuleContent from './RuleContent';
 import RuleForm from './RuleForm';
+
 import findRule from '../utils/findRule';
 import { defaultRuleName } from '../utils/constants';
 
@@ -26,7 +27,9 @@ export default function Rules({
   };
 
   const deleteRule = name => {
-    setSelectedRuleName(defaultRuleName);
+    if (selectedRuleName === name) {
+      setSelectedRuleName(defaultRuleName);
+    }
     setRules(
       rules.filter(rule => {
         return rule.name !== name;

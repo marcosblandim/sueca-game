@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
+
 import { defaultRuleName } from '../../utils/constants';
 
 export default function RuleLine({
@@ -18,10 +19,6 @@ export default function RuleLine({
     if (confirm(confirmMessage)) {
       deleteRule(rule.name);
     }
-  };
-
-  const onEdit = event => {
-    event.stopPropagation();
   };
 
   let match = useRouteMatch();

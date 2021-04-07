@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import getFullDeck from './getFullDeck';
+
+import getFullDeck from '../utils/getFullDeck';
 import './styles.css';
 
 function Game({ selectedRule }) {

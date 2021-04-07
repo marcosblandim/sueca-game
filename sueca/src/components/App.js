@@ -3,8 +3,9 @@ import { Route, Switch, Redirect } from 'react-router';
 import Game from './Game';
 import Home from './Home';
 import Rules from './Rules';
-import getDefaultRuleContent from './Rules/utils/getDefaultRuleContent';
 import RuleEditor from './Rules/RuleEditor';
+
+import getDefaultRuleContent from './utils/getDefaultRuleContent';
 import { ls, defaultRuleName } from './utils/constants';
 import findRule from './utils/findRule';
 

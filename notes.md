@@ -9,6 +9,7 @@ Sueca card game for web.
 - implementar mostrar pilha de discarte
 - extrair find rule pra utils
 - extrair as strings defaultRuleName = 'standart', namespace e as LSKeys que sao usadas em mais de um lugar (nem todas, eu acho) para um js de string ou algo assim
+- colocar title e imagem na aba
 
 ## DONE
 - perguntar antes de executar os botoes de fill, erase e add
