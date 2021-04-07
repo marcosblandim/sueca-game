@@ -1,6 +1,6 @@
 import React from 'react';
 
-import getSuits from '../../utils/getSuits';
+import getSuits from '../../../utils/getSuits';
 
 export default function RuleContent({ content }) {
   return (

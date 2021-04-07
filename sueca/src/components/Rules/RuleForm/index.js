@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import getSuits from '../../utils/getSuits';
-import getDefaultRuleContent from '../../utils/getDefaultRuleContent';
-import getEmptyRuleContent from '../../utils/getEmptyRuleContent';
+import getSuits from '../../../utils/getSuits';
+import getDefaultRuleContent from '../../../utils/getDefaultRuleContent';
+import getEmptyRuleContent from '../../../utils/getEmptyRuleContent';
 
 export default function RuleForm({ addRule }) {
   const [rule, setRule] = useState({

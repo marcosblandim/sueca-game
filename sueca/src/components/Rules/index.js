@@ -4,8 +4,8 @@ import RuleLine from './RuleLine';
 import RuleContent from './RuleContent';
 import RuleForm from './RuleForm';
 
-import findRule from '../utils/findRule';
-import { defaultRuleName } from '../utils/constants';
+import findRule from '../../utils/findRule';
+import { defaultRuleName } from '../../utils/constants';
 
 export default function Rules({
   rules,

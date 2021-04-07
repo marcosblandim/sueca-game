@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Redirect, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import findRule from '../../utils/findRule';
-import getSuits from '../../utils/getSuits';
+import findRule from '../../../utils/findRule';
+import getSuits from '../../../utils/getSuits';
 
 export default function RuleEditor({ rules, updateRule }) {
   const { name: ruleName } = useParams();

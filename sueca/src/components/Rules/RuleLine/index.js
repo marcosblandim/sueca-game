@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 
-import { defaultRuleName } from '../../utils/constants';
+import { defaultRuleName } from '../../../utils/constants';
 
 export default function RuleLine({
   rule,

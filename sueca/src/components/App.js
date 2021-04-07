@@ -5,9 +5,9 @@ import Home from './Home';
 import Rules from './Rules';
 import RuleEditor from './Rules/RuleEditor';
 
-import getDefaultRuleContent from './utils/getDefaultRuleContent';
-import { ls, defaultRuleName } from './utils/constants';
-import findRule from './utils/findRule';
+import getDefaultRuleContent from '../utils/getDefaultRuleContent';
+import { ls, defaultRuleName } from '../utils/constants';
+import findRule from '../utils/findRule';
 
 export default function App() {
   const fetchLSRules = () =>
