@@ -101,9 +101,3 @@ export default function RuleForm({ addRule }) {
     </div>
   );
 }
-
-/*
-- perguntar antes de executar os botoes de fill, erase e add
-- se algum input for salvo vazio, preencher com regras defaults
-- extrair find rule pra utils
-*/

@@ -2,6 +2,20 @@
 Sueca card game for web.
 
 ## TODO
+- se algum input for salvo vazio, preencher com regras defaults
+- nao preencher ou apagar se nao tiver mudado nada desde a ultima acao correspondente
+- mover (drag and drop) ruleLine
+- mostrar a descricao "sobe demanda"
+- implementar mostrar pilha de discarte
+- extrair find rule pra utils
+- extrair as strings defaultRuleName = 'standart', namespace e as LSKeys que sao usadas em mais de um lugar (nem todas, eu acho) para um js de string ou algo assim
+
+## DONE
+- perguntar antes de executar os botoes de fill, erase e add
+- perguntar antes de deletar
+- deletar, editar e ruleLine
+- perguntar antes de editar
+
 
 ## Features
 - regras pra todas as cartas ou soh pro numero

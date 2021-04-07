@@ -64,7 +64,8 @@ function Game({ selectedRule }) {
           <img
             alt={`${getCurrCard()} card`}
             className='card'
-            src={`cards/${getCurrCard()}.png`}
+            // src={`./cards/${getCurrCard()}.png`}
+            src={`https://deckofcardsapi.com/static/img/${getCurrCard()}.png`}
           />
         </p>
         <h3 style={{ marginLeft: '40px' }}>{ruleName}</h3>
