@@ -1,6 +1,6 @@
 {
   "short_name": "Sueca Game",
-  "name": "Web app of wSueca Card Game",
+  "name": "Web app of Sueca Card Game",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

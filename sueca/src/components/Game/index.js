@@ -63,10 +63,9 @@ function Game({ selectedRule }) {
       <React.Fragment>
         <p>
           <img
+            src={`./cards/${getCurrCard()}.png`}
             alt={`${getCurrCard()} card`}
             className='card'
-            // src={`./cards/${getCurrCard()}.png`}
-            src={`https://deckofcardsapi.com/static/img/${getCurrCard()}.png`}
           />
         </p>
         <h3 style={{ marginLeft: '40px' }}>{ruleName}</h3>
