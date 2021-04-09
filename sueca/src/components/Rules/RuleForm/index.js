@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import getSuits from '../../../utils/getSuits';
 import getDefaultRuleContent from '../../../utils/getDefaultRuleContent';
 import getEmptyRuleContent from '../../../utils/getEmptyRuleContent';
 
 export default function RuleForm({ addRule }) {
-  const [rule, setRule] = useState({
-    name: '',
-    content: getDefaultRuleContent(),
-  });
+  const [ruleName, setRuleName] = useState('');
+  const [ruleContent, setRuleContent] = useState(getDefaultRuleContent());
+  const [justErased, setJustErased] = useState(false);
+  const [justFilled, setJustFilled] = useState(true);
 
   const handleAddition = event => {
     event.preventDefault();
@@ -18,49 +18,61 @@ export default function RuleForm({ addRule }) {
       return;
     }
 
-    const added = addRule(rule);
+    const newRule = {
+      name: ruleName,
+      content: { ...ruleContent },
+    };
+
+    const added = addRule(newRule);
     if (added) {
-      const newRule = { ...rule };
-      newRule.name = '';
-      newRule.content = getEmptyRuleContent();
-      setRule(newRule);
+      setRuleName('');
+      fillContent();
     }
   };
 
-  const setRuleContent = content => {
-    const newRule = { ...rule };
-    newRule.content = content;
-    setRule(newRule);
+  const handleNameInputChange = ({ target }) => {
+    const newRuleName = target.value;
+    setRuleName(newRuleName);
   };
 
-  const handleNameInputChange = event => {
-    const target = event.target;
-    const newRule = { ...rule };
-
-    newRule.name = target.value;
-    setRule(newRule);
-  };
-
-  const handleContentInputChange = event => {
-    const target = event.target;
-    const newRule = { ...rule };
+  const handleContentInputChange = ({ target }) => {
+    const newContent = { ...ruleContent };
 
     const [suit, field] = target.id.split('-');
-    newRule.content[suit][field] = target.value;
-    setRule(newRule);
+    newContent[suit][field] = target.value;
+
+    setRuleContent(newContent);
+
+    setJustErased(false);
+    setJustFilled(false);
   };
 
   const eraseInputs = () => {
     const confirmMessage = 'clean the form? it will overwrite the current form';
     if (confirm(confirmMessage)) {
-      setRuleContent(getEmptyRuleContent());
+      eraseContent();
     }
   };
+
+  const eraseContent = () => {
+    setRuleContent(getEmptyRuleContent());
+
+    setJustErased(true);
+    setJustFilled(false);
+  };
+
   const fillInputs = () => {
     const confirmMessage = 'fill the form? it will overwrite the current form';
     if (confirm(confirmMessage)) {
-      setRuleContent(getDefaultRuleContent());
+      fillContent();
     }
+  };
+
+  const fillContent = () => {
+    setRuleContent(getDefaultRuleContent());
+
+    setJustFilled(true);
+    setJustErased(false);
   };
 
   return (
@@ -68,7 +80,7 @@ export default function RuleForm({ addRule }) {
       <form onSubmit={handleAddition}>
         <input
           id='name'
-          value={rule.name}
+          value={ruleName}
           onChange={handleNameInputChange}
           placeholder={'Nome das regras'}
           required
@@ -78,23 +90,23 @@ export default function RuleForm({ addRule }) {
             Nome:
             <input
               id={suit + '-name'}
-              value={rule.content[suit] ? rule.content[suit].name : ''}
+              value={ruleContent[suit] ? ruleContent[suit].name : ''}
               onChange={handleContentInputChange}
               placeholder={'Nome da regra do ' + suit}
             />
             Descrição:
             <input
               id={suit + '-description'}
-              value={rule.content[suit] ? rule.content[suit].description : ''}
+              value={ruleContent[suit] ? ruleContent[suit].description : ''}
               onChange={handleContentInputChange}
               placeholder={'Descrição da regra do ' + suit}
             />
           </div>
         ))}
-        <button type='button' onClick={eraseInputs}>
+        <button type='button' onClick={eraseInputs} disabled={justErased}>
           Erase all inputs
         </button>
-        <button type='button' onClick={fillInputs}>
+        <button type='button' onClick={fillInputs} disabled={justFilled}>
           Fill with default rules
         </button>
         <button type='submit'>Add rule</button>
