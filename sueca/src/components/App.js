@@ -47,7 +47,16 @@ export default function App() {
   });
 
   const updateRule = rule => {
-    setRules([...rules, rule]);
+    const newRules = [...rules];
+
+    for (let newRule of newRules) {
+      if (newRule.name == rule.name) {
+        newRule = rule;
+        break;
+      }
+    }
+
+    setRules([...newRules]);
   };
 
   return (

@@ -9,7 +9,7 @@ export default function RuleContent({ content }) {
         <div key={cardSuit}>
           {cardSuit == 0 && 1}
           {cardSuit} -{'> '}
-          {content[cardSuit].name}
+          {content[cardSuit].name} - {content[cardSuit].description}
         </div>
       ))}
     </div>

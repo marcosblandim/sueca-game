@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import getSuits from '../../../utils/getSuits';
 import getDefaultRuleContent from '../../../utils/getDefaultRuleContent';
 import getEmptyRuleContent from '../../../utils/getEmptyRuleContent';
+import rulePostProcess from '../../../utils/rulePostProcess';
 
 export default function RuleForm({ addRule }) {
   const [ruleName, setRuleName] = useState('');
@@ -23,7 +24,9 @@ export default function RuleForm({ addRule }) {
       content: { ...ruleContent },
     };
 
-    const added = addRule(newRule);
+    const processedRule = rulePostProcess(newRule);
+
+    const added = addRule(processedRule);
     if (added) {
       setRuleName('');
       fillContent();

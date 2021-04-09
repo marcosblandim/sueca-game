@@ -29,7 +29,12 @@ export default function RuleLine({
         <button type='button' onClick={onDelete}>
           Delete
         </button>
-        <Link to={`${match.url}/${rule.name}/edit`}>Edit</Link>
+        <Link
+          onClick={e => e.stopPropagation()}
+          to={`${match.url}/${rule.name}/edit`}
+        >
+          Edit
+        </Link>
       </React.Fragment>
     );
   };

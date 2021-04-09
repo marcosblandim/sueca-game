@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import findRule from '../../../utils/findRule';
 import getSuits from '../../../utils/getSuits';
+import rulePostProcess from '../../../utils/rulePostProcess';
 
 export default function RuleEditor({ rules, updateRule }) {
   const { name: ruleName } = useParams();
@@ -34,6 +35,9 @@ export default function RuleEditor({ rules, updateRule }) {
     if (!confirm(confirmMessage)) {
       return;
     }
+
+    const processedEditorRule = rulePostProcess({ ...editorRule });
+    updateRule(processedEditorRule);
 
     setRedirectToRules(true);
   };
