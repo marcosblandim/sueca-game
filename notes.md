@@ -2,20 +2,26 @@
 Sueca card game for web.
 
 ## TODO
-- se algum input for salvo vazio, preencher com regras defaults
-- nao preencher ou apagar se nao tiver mudado nada desde a ultima acao correspondente
-- mover (drag and drop) ruleLine
-- mostrar a descricao "sobe demanda"
-- implementar mostrar pilha de discarte
-- extrair find rule pra utils
-- extrair as strings defaultRuleName = 'standart', namespace e as LSKeys que sao usadas em mais de um lugar (nem todas, eu acho) para um js de string ou algo assim
-- colocar title e imagem na aba
+- estilização (v2)
+  - colocar title e imagem na aba
+  - mostrar a descricao "sobe demanda"
+  - implementar mostrar pilha de discarte
+  - mover (drag and drop) ruleLine
+  - na lista de regras, deixar a standart fixa la em cima, e ultima criada logo embaixo (com a ordenacao decrescente no tempo; a mais nova la em cima)
+  - avisar que regras vazia sao preenchidas com regras default
+- v3
+  - resolver os problemas causado pelos obbjetos de multi nivel
+    - isso causa o uso de shallow copies, que causa mutações inesperadas nos objetos, resultando em bugs dificeis de resolver
 
 ## DONE
+- se algum input for salvo vazio, preencher com regras defaults
+- nao preencher ou apagar se nao tiver mudado nada desde a ultima acao correspondente
 - perguntar antes de executar os botoes de fill, erase e add
 - perguntar antes de deletar
 - deletar, editar e ruleLine
 - perguntar antes de editar
+- extrair find rule pra utils
+- extrair as strings defaultRuleName = 'standart', namespace e as LSKeys que sao usadas em mais de um lugar (nem todas, eu acho) para um js de string ou algo assim
 
 
 ## Features
