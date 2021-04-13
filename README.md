@@ -11,8 +11,6 @@
 
 > Web version of the Sueca card game.
 
-### 🏠 [Homepage](https://github.com/marcosblandim/sueca-game)
-
 ## Install
 
 ```sh

@@ -1,19 +1,36 @@
 # sueca-game
 Sueca card game for web.
 
+## Planejamento
+
+### V2
+- será focada na estilização utilizando styled components
+- estudar:
+  - estrutura de arquivos
+  - aprofundar em styled components
+  - css (?)
+
 ## TODO
 - estilização (v2)
-  - colocar title e imagem na aba
   - mostrar a descricao "sobe demanda"
   - implementar mostrar pilha de discarte
   - mover (drag and drop) ruleLine
   - na lista de regras, deixar a standart fixa la em cima, e ultima criada logo embaixo (com a ordenacao decrescente no tempo; a mais nova la em cima)
   - avisar que regras vazia sao preenchidas com regras default
+  - mudar o nome da aba para cada tela
+  - continuar o jogo de onde parou; salvar sessão até as cartas acabarem (ai nao precisa salvar, pode reiniciar quando sair e voltar) ou o usuario reiniciar a sessao
+  - fazer o efeito de varias cartas uma encima da outra na hora de jogar
+  - pergunta de confirmação antes de mudar a regra selecionada
+  - usar breadcrumb
+  - implementar uma navbar
 - v3
-  - resolver os problemas causado pelos obbjetos de multi nivel
+  - resolver os problemas causado pelos obbjetos de multi nivel (usar loadash)
     - isso causa o uso de shallow copies, que causa mutações inesperadas nos objetos, resultando em bugs dificeis de resolver
 
-## DONE
+## DONE V2
+  - colocar title e imagem na aba
+
+## DONE V1
 - se algum input for salvo vazio, preencher com regras defaults
 - nao preencher ou apagar se nao tiver mudado nada desde a ultima acao correspondente
 - perguntar antes de executar os botoes de fill, erase e add
