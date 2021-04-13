@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import getFullDeck from '../../utils/getFullDeck';
+import GameBoard from './GameBoard';
 import './styles.css';
 
 function Game({ selectedRule }) {
@@ -40,63 +41,23 @@ function Game({ selectedRule }) {
   };
 
   const getCurrCard = () => {
-    return cards[currCardIndex];
+    return currCardIndex && cards[currCardIndex];
   };
 
-  const ConditionalCard = () => {
-    if (!cards.length) {
-      return <p>Deck is empty</p>;
-    } else if (currCardIndex != null) {
-      return <Card />;
-    } else {
-      return <p>No card drawn</p>;
-    }
-  };
-
-  const Card = () => {
-    const cardKey = getCurrCard()[0];
-    const {
-      name: ruleName,
-      description: ruleDescription,
-    } = selectedRule.content[cardKey];
-    return (
-      <React.Fragment>
-        <p>
-          <img
-            src={`./cards/${getCurrCard()}.png`}
-            alt={`${getCurrCard()} card`}
-            className='card'
-          />
-        </p>
-        <h3 style={{ marginLeft: '40px' }}>{ruleName}</h3>
-        <p style={{ marginLeft: '40px' }}>{ruleDescription}</p>
-      </React.Fragment>
-    );
-  };
+  const selectedCardRule = getCurrCard()
+    ? selectedRule.content[getCurrCard()[0]]
+    : null;
 
   return (
-    <React.Fragment>
-      <h1>Game</h1>
-      <p>
-        <Link to='/'>{'<'} Back</Link>
-      </p>
-      <p>Keep card: {keepCurrCard ? 'true' : 'false'}</p>
-      <p>Number of cards: {cards.length}</p>
-
-      <button type='button' onClick={toggleKeepCurrCard}>
-        Toggle keep card
-      </button>
-      <br />
-      <button type='button' onClick={resetDeck}>
-        Reset deck
-      </button>
-      <br />
-      <button type='button' onClick={getRandomCard}>
-        Next card
-      </button>
-
-      <ConditionalCard />
-    </React.Fragment>
+    <GameBoard
+      cardKey={getCurrCard()}
+      rule={selectedCardRule}
+      keepCurrCard={keepCurrCard}
+      numberOfCards={cards.length}
+      onToggleKeepCurrCard={toggleKeepCurrCard}
+      onResetDeck={resetDeck}
+      onGetRandomCard={getRandomCard}
+    />
   );
 }
 

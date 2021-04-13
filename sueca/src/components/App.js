@@ -60,7 +60,7 @@ export default function App() {
   };
 
   return (
-    <div className='App'>
+    <div>
       <Switch>
         <Route path='/game'>
           <Game selectedRule={findRule(selectedRuleName, rules)} />
