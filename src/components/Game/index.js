@@ -125,7 +125,7 @@ function Game({ selectedRule }) {
         </div>
       </div>
       {!isMobile ? (
-        <div className='row '>
+        <div className='row'>
           <div className='offset-2 col-4'>
             <img
               alt={imgAlt}
@@ -160,8 +160,26 @@ function Game({ selectedRule }) {
           </div>
         </>
       )}
-      <div className='row justify-content-center'>
-        <div className='m-4'>
+
+      <div className='flexContainer mt-3'>
+        <div className='ml-4 mr-0'>
+          <figure>
+            <figcaption>
+              <b>Descarte</b>
+            </figcaption>
+            <img
+              alt={discardPile[-1]}
+              className='playing-card discarted ml-1'
+              src={`./cards/${
+                discardPile.length
+                  ? discardPile[discardPile.length - 1]
+                  : backCardFilename
+              }.png`}
+            />
+          </figure>
+        </div>
+
+        <div className='align-self-center ml-0 mr-0 mt-3'>
           <button
             className='next-card-btn btn btn-secondary'
             onClick={resetDeck}
@@ -169,12 +187,9 @@ function Game({ selectedRule }) {
           >
             Reiniciar baralho
           </button>
-        </div>
-      </div>
-
-      <div className='row justify-content-center'>
-        <div className='mb-2'>
-          <KeepCurrCardSwitch onClick={toggleKeepCurrCard} />
+          <div className='mt-2'>
+            <KeepCurrCardSwitch onClick={toggleKeepCurrCard} />
+          </div>
         </div>
       </div>
     </div>

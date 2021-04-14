@@ -12,6 +12,8 @@ Sueca card game for web.
 
 ## TODO
 - estilização (v2)
+  - colocar um titulo pra cada pagina
+  - mostrar a carta passada em algum lugar (pequeno no canto)
   - mostrar a descricao "sobe demanda"
   - implementar mostrar pilha de discarte
   - mover (drag and drop) ruleLine
