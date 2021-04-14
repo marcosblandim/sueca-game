@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
 
 import getFullDeck from '../../utils/getFullDeck';
 
@@ -102,7 +103,7 @@ function Game({ selectedRule }) {
   );
 
   return (
-    <div className='container mt-4 panel p-3 w-50'>
+    <div className={`container mt-4 panel p-3 ${!isMobile ? 'w-50' : 'w-75'}`}>
       <div className='row'>
         <div className='offset-2 col'>
           <Link to='/'>{'<'} Back</Link>
@@ -123,21 +124,42 @@ function Game({ selectedRule }) {
           </button>
         </div>
       </div>
-
-      <div className='row '>
-        <div className='offset-2 col-4'>
-          <img
-            alt={imgAlt}
-            className='playing-card'
-            src={`./cards/${currCard}.png`}
-          />
+      {!isMobile ? (
+        <div className='row '>
+          <div className='offset-2 col-4'>
+            <img
+              alt={imgAlt}
+              className='playing-card'
+              src={`./cards/${currCard}.png`}
+              onClick={getRandomCard}
+              style={!isDeckEmpty() ? { cursor: 'pointer' } : {}}
+            />
+          </div>
+          <div className='col-6'>
+            <h3>{ruleName}</h3>
+            <p>{ruleDescription}</p>
+          </div>
         </div>
-        <div className='col-6'>
-          <h3>{ruleName}</h3>
-          <p>{ruleDescription}</p>
-        </div>
-      </div>
-
+      ) : (
+        <>
+          <div className='row'>
+            <div className='offset-2 col-8'>
+              <img
+                alt={imgAlt}
+                className='playing-card'
+                src={`./cards/${currCard}.png`}
+                onClick={getRandomCard}
+              />
+            </div>
+          </div>
+          <div className='row'>
+            <div className='offset-3 col-8 mt-3'>
+              <h3>{ruleName}</h3>
+              <p>{ruleDescription}</p>
+            </div>
+          </div>
+        </>
+      )}
       <div className='row justify-content-center'>
         <div className='m-4'>
           <button
