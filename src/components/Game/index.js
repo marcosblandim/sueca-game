@@ -5,6 +5,7 @@ import { isMobile } from 'react-device-detect';
 import getFullDeck from '../../utils/getFullDeck';
 
 import './styles.scss';
+import { suitsSymbols } from '../../utils/constants';
 
 function Game({ selectedRule }) {
   const backCardFilename = 'XX';
@@ -102,6 +103,25 @@ function Game({ selectedRule }) {
     </div>
   );
 
+  const formattedRuleName = () => {
+    let number = currCard[0];
+
+    if (number === 'X') {
+      return ruleName;
+    }
+    if (number === '0') {
+      number = '10';
+    } else {
+      number = ' ' + number;
+    }
+
+    const suit = currCard[1];
+    console.log(currCard);
+    const prefix = number + suitsSymbols[suit];
+
+    return `${prefix} ${ruleName}`;
+  };
+
   return (
     <div className={`container mt-4 panel p-3 ${!isMobile ? 'w-50' : 'w-75'}`}>
       <div className='row'>
@@ -135,8 +155,8 @@ function Game({ selectedRule }) {
               style={!isDeckEmpty() ? { cursor: 'pointer' } : {}}
             />
           </div>
-          <div className='col-6'>
-            <h3>{ruleName}</h3>
+          <div className='col-6 mt-2'>
+            <h3>{formattedRuleName()}</h3>
             <p>{ruleDescription}</p>
           </div>
         </div>
@@ -154,7 +174,7 @@ function Game({ selectedRule }) {
           </div>
           <div className='row'>
             <div className='offset-3 col-8 mt-3'>
-              <h3>{ruleName}</h3>
+              <h3>{formattedRuleName()}</h3>
               <p>{ruleDescription}</p>
             </div>
           </div>

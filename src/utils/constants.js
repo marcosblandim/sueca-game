@@ -3,4 +3,5 @@ export const ls = {
   rulesKey: 'rules',
   selectedRuleNameKey: 'selectedRuleName',
 };
-export const defaultRuleName = 'standart';
+export const defaultRuleName = 'Regra padrão';
+export const suitsSymbols = { C: '♣️', D: '♦️', H: '♥️', S: '♠️' };
