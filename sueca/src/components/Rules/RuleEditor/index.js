@@ -58,6 +58,7 @@ export default function RuleEditor({ rules, updateRule }) {
               value={editorRule.content[suit].name}
               onChange={handleInputChange}
               placeholder={'Nome da regra do ' + suit}
+              maxLength='30'
             />
             Descrição:
             <input
@@ -65,6 +66,7 @@ export default function RuleEditor({ rules, updateRule }) {
               value={editorRule.content[suit].description}
               onChange={handleInputChange}
               placeholder={'Descrição da regra do ' + suit}
+              maxLength='50'
             />
           </div>
         ))}

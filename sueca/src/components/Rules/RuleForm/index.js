@@ -87,6 +87,7 @@ export default function RuleForm({ addRule }) {
           onChange={handleNameInputChange}
           placeholder={'Nome das regras'}
           required
+          maxLength='30'
         />
         {getSuits().map(suit => (
           <div key={suit}>
@@ -96,6 +97,7 @@ export default function RuleForm({ addRule }) {
               value={ruleContent[suit] ? ruleContent[suit].name : ''}
               onChange={handleContentInputChange}
               placeholder={'Nome da regra do ' + suit}
+              maxLength='30'
             />
             Descrição:
             <input
@@ -103,6 +105,7 @@ export default function RuleForm({ addRule }) {
               value={ruleContent[suit] ? ruleContent[suit].description : ''}
               onChange={handleContentInputChange}
               placeholder={'Descrição da regra do ' + suit}
+              maxLength='50'
             />
           </div>
         ))}
