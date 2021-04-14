@@ -37,7 +37,7 @@ function Game({ selectedRule }) {
   };
 
   const resetDeck = () => {
-    if (deckIsEmpty || confirm('Deseja reiniciar o baralho?')) {
+    if (isDeckEmpty() || confirm('Deseja reiniciar o baralho?')) {
       setCards(getFullDeck());
       setDiscardPile([]);
       setCurrCardIndex(null);
