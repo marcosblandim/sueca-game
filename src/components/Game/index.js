@@ -17,6 +17,9 @@ function Game({ selectedRule }) {
 
   const getRandomCard = () => {
     let cardsLength = cards.length;
+    if (cardsLength === 0) {
+      return;
+    }
 
     if (currCardIndex != null && !keepCurrCard) {
       cardsLength--;
@@ -116,7 +119,6 @@ function Game({ selectedRule }) {
     }
 
     const suit = currCard[1];
-    console.log(currCard);
     const prefix = number + suitsSymbols[suit];
 
     return `${prefix} ${ruleName}`;
@@ -189,7 +191,7 @@ function Game({ selectedRule }) {
             </figcaption>
             <img
               alt={discardPile[-1]}
-              className='playing-card discarted ml-1'
+              className='playing-card discarted ml-0'
               src={`./cards/${
                 discardPile.length
                   ? discardPile[discardPile.length - 1]
