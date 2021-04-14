@@ -4,6 +4,7 @@ yarn-debug.log*
 yarn-error.log*
 sueca/node_modules/.cache/.eslintcache
 sueca/package-lock.json
+**/build/*
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
